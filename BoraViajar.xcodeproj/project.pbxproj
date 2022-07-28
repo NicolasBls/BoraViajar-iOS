@@ -13,6 +13,8 @@
 		0167C9352886327B00D8C964 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0167C9332886327B00D8C964 /* Main.storyboard */; };
 		0167C9372886327D00D8C964 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0167C9362886327D00D8C964 /* Assets.xcassets */; };
 		0167C93A2886327D00D8C964 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0167C9382886327D00D8C964 /* LaunchScreen.storyboard */; };
+		01D72456288A108200AF4C55 /* HomeTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01D72455288A108200AF4C55 /* HomeTableViewHeader.xib */; };
+		01D72458288A130000AF4C55 /* HomeTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D72457288A130000AF4C55 /* HomeTableViewHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		0167C9362886327D00D8C964 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0167C9392886327D00D8C964 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0167C93B2886327D00D8C964 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01D72455288A108200AF4C55 /* HomeTableViewHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewHeader.xib; sourceTree = "<group>"; };
+		01D72457288A130000AF4C55 /* HomeTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +41,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		01085523288CAFD800EE990D /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				0167C92D2886327B00D8C964 /* AppDelegate.swift */,
+				0167C92F2886327B00D8C964 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		01085524288CAFF500EE990D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		01085525288CB00D00EE990D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0167C9312886327B00D8C964 /* ViewController.swift */,
+				0167C9332886327B00D8C964 /* Main.storyboard */,
+				01085526288CB04700EE990D /* Header */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		01085526288CB04700EE990D /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				01D72455288A108200AF4C55 /* HomeTableViewHeader.xib */,
+				01D72457288A130000AF4C55 /* HomeTableViewHeader.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		01085527288CB05A00EE990D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		0167C9212886327B00D8C964 = {
 			isa = PBXGroup;
 			children = (
@@ -56,10 +102,10 @@
 		0167C92C2886327B00D8C964 /* BoraViajar */ = {
 			isa = PBXGroup;
 			children = (
-				0167C92D2886327B00D8C964 /* AppDelegate.swift */,
-				0167C92F2886327B00D8C964 /* SceneDelegate.swift */,
-				0167C9312886327B00D8C964 /* ViewController.swift */,
-				0167C9332886327B00D8C964 /* Main.storyboard */,
+				01085523288CAFD800EE990D /* AppDelegate */,
+				01085524288CAFF500EE990D /* Model */,
+				01085525288CB00D00EE990D /* View */,
+				01085527288CB05A00EE990D /* ViewModel */,
 				0167C9362886327D00D8C964 /* Assets.xcassets */,
 				0167C9382886327D00D8C964 /* LaunchScreen.storyboard */,
 				0167C93B2886327D00D8C964 /* Info.plist */,
@@ -126,6 +172,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0167C93A2886327D00D8C964 /* LaunchScreen.storyboard in Resources */,
+				01D72456288A108200AF4C55 /* HomeTableViewHeader.xib in Resources */,
 				0167C9372886327D00D8C964 /* Assets.xcassets in Resources */,
 				0167C9352886327B00D8C964 /* Main.storyboard in Resources */,
 			);
@@ -139,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0167C9322886327B00D8C964 /* ViewController.swift in Sources */,
+				01D72458288A130000AF4C55 /* HomeTableViewHeader.swift in Sources */,
 				0167C92E2886327B00D8C964 /* AppDelegate.swift in Sources */,
 				0167C9302886327B00D8C964 /* SceneDelegate.swift in Sources */,
 			);
