@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     func configuraTableView(){
         viagensTableView.register(UINib(nibName: "ViagemTableViewCell", bundle: nil), forCellReuseIdentifier: "ViagemTableViewCell")
+        viagensTableView.register(UINib(nibName: "OfertaTableViewCell", bundle: nil), forCellReuseIdentifier: "OfertaTableViewCell")
         viagensTableView.dataSource = self
         viagensTableView.delegate = self
         viagensTableView.sectionHeaderTopPadding = 0
@@ -28,35 +29,51 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headView = Bundle.main.loadNibNamed("HomeTableViewHeader", owner: self)?.first as? HomeTableViewHeader
-        headView?.configuraView()
-        
-        return headView
+        if section == 0 {
+            let headView = Bundle.main.loadNibNamed("HomeTableViewHeader", owner: self)?.first as? HomeTableViewHeader
+            headView?.configuraView()
+            
+            return headView
+        }
+        return nil
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 300
+        if section == 0 {
+            return 300
+        }
+        return 0
     }
 }
 
 
 extension ViewController: UITableViewDataSource {
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return sessaoDeViagens?.count ?? 0
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sessaoDeViagens?[section].numeroDeLinhas ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let celulaViagem = tableView.dequeueReusableCell(withIdentifier: "ViagemTableViewCell") as? ViagemTableViewCell else {
-            fatalError("Error to create ViagemTableViewCell")
-        }
         
         let viewModel = sessaoDeViagens?[indexPath.section]
         
         switch viewModel?.tipo {
         case .destaques:
+            guard let celulaViagem = tableView.dequeueReusableCell(withIdentifier: "ViagemTableViewCell") as? ViagemTableViewCell else {
+                fatalError("Error to create ViagemTableViewCell")
+            }
             celulaViagem.configuraCelula(viewModel?.viagens[indexPath.row])
             return celulaViagem
+        case .ofertas:
+            guard let celulaOferta = tableView.dequeueReusableCell(withIdentifier: "OfertaTableViewCell") as? OfertaTableViewCell else {
+                fatalError("Error to create ViagemTableViewCell")
+            }
+            celulaOferta.configuraCelula(viewModel?.viagens)
+            return celulaOferta
         default:
             return UITableViewCell()
         }
