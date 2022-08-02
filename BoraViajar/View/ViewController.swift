@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         viagensTableView.dataSource = self
         viagensTableView.delegate = self
         viagensTableView.sectionHeaderTopPadding = 0
+        viagensTableView.separatorStyle = .none
     }
 
     @IBOutlet weak var viagensTableView: UITableView!
@@ -79,6 +80,10 @@ extension ViewController: UITableViewDataSource {
         }
         
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
