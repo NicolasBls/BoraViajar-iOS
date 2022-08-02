@@ -98,8 +98,8 @@
 		01085526288CB04700EE990D /* Header */ = {
 			isa = PBXGroup;
 			children = (
-				01D72455288A108200AF4C55 /* HomeTableViewHeader.xib */,
 				01D72457288A130000AF4C55 /* HomeTableViewHeader.swift */,
+				01D72455288A108200AF4C55 /* HomeTableViewHeader.xib */,
 			);
 			path = Header;
 			sourceTree = "<group>";
