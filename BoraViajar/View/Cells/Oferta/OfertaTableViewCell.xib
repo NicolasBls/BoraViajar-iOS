@@ -97,7 +97,7 @@
                                     <constraint firstItem="yOT-lJ-D6j" firstAttribute="top" secondItem="gmk-DP-SfH" secondAttribute="bottom" constant="10" id="nUE-5U-Rpw"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ivA-Br-aof">
+                            <view tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ivA-Br-aof">
                                 <rect key="frame" x="155" y="0.0" width="145" height="365"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P4r-6d-ZvX">

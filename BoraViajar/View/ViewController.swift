@@ -45,6 +45,13 @@ extension ViewController: UITableViewDelegate {
         }
         return 0
     }
+    
+    func irParaDetalhe(_ viagem: Viagem?){
+        if let viagemSelecionada = viagem {
+            let detalheCotroller = DetalheViewController.instanciar(viagemSelecionada)
+            navigationController?.pushViewController(detalheCotroller, animated: true)
+        }
+    }
 }
 
 
@@ -73,6 +80,7 @@ extension ViewController: UITableViewDataSource {
             guard let celulaOferta = tableView.dequeueReusableCell(withIdentifier: "OfertaTableViewCell") as? OfertaTableViewCell else {
                 fatalError("Error to create ViagemTableViewCell")
             }
+            celulaOferta.delegate = self
             celulaOferta.configuraCelula(viewModel?.viagens)
             return celulaOferta
         default:
@@ -83,14 +91,28 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let detalheCotroller = DetalheViewController(nibName: "DetalheViewController", bundle: nil)
         
-        navigationController?.pushViewController(detalheCotroller, animated: true)
+        let viewModel = sessaoDeViagens?[indexPath.section]
+        switch viewModel?.tipo {
+        case .destaques, .internacionais:
+            let viagemSelecionada = viewModel?.viagens[indexPath.row]
+            irParaDetalhe(viagemSelecionada)
+        default: break
+        }
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 400
+    }
+
+}
+
+extension ViewController: OfertaTableViewCellDelegate {
+    
+    func didSelectView(_ viagem: Viagem) {
+        irParaDetalhe(viagem)
     }
 }
 
